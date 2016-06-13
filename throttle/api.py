@@ -40,7 +40,7 @@ class Throttler(object):
             key=key,
             rate=rate or self.rate,
             capacity=capacity or self.capacity,
-            storate=self.storate,
+            storage=self.storage,
             **kwargs)
 
     def consume(self, key, amount=1, rate=None, capacity=None, **kwargs):

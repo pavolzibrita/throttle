@@ -47,7 +47,7 @@ class Bucket(object):
         This should be called before any consumption takes place.
 
         Returns:
-            int: the new capacity of the bucket
+            float: the new capacity of the bucket
         """
         capacity, last_leak = self.storage.mget(self.key_amount, self.key_last_leak,
                 coherent=True)
@@ -58,7 +58,7 @@ class Bucket(object):
             elapsed = now - last_leak
             decrement = elapsed * self.rate
 
-            new_capacity = max(int(capacity - decrement), 0)
+            new_capacity = max(capacity - decrement, 0)
         else:
             new_capacity = 0
 
